@@ -26,7 +26,7 @@ body{background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow
 .headline{position:absolute;left:4vw;top:50%;transform:translateY(-50%);font-size:var(--fs);font-weight:800;letter-spacing:.04em;line-height:1;white-space:nowrap;color:#111;-webkit-text-stroke:1px rgba(255,255,255,.4)}
 .headline span{display:inline-block;will-change:transform,opacity}
 .car{position:absolute;left:0;top:50%;height:calc(var(--band)*.86);margin-top:calc(var(--band)*-.43);will-change:transform}
-.car svg{height:100%;width:auto;display:block}
+.car img{height:100%;width:auto;display:block}
 .next{min-height:100vh;display:grid;place-items:center;text-align:center;padding:3rem 1.5rem;background:var(--next);color:var(--nextfg)}
 .next h2{font-size:clamp(1.6rem,4vw,3rem)}
 @media (max-width:700px){
@@ -49,42 +49,7 @@ body{background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow
     <div class="trail" id="trail"></div>
     <h1 class="headline" id="headline" aria-label="Welcome ItzFizz">WELCOME ITZFIZZ</h1>
     <div class="car" id="car" aria-hidden="true">
-      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="og" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="520" y2="0"><stop offset="0" stop-color="#cf5a1a"/><stop offset=".55" stop-color="#ec8534"/><stop offset="1" stop-color="#f59a4c"/></linearGradient>
-          <path id="hb" d="M512 110C511 88 497 68 470 58L410 46C385 41 345 38 300 38L205 40C160 40 120 38 88 42C50 46 26 60 19 80C15 92 15 100 15 110Z"/>
-        </defs>
-        <ellipse cx="262" cy="196" rx="235" ry="12" fill="#000" opacity=".28"/>
-        <!-- wheels -->
-        <g fill="#0b0b0c"><rect x="352" y="4" width="78" height="30" rx="11"/><rect x="352" y="186" width="78" height="30" rx="11"/>
-          <rect x="62" y="2" width="84" height="32" rx="11"/><rect x="62" y="186" width="84" height="32" rx="11"/></g>
-        <!-- body -->
-        <use href="#hb" fill="url(#og)"/><use href="#hb" fill="url(#og)" transform="translate(0 220) scale(1 -1)"/>
-        <!-- front splitter + headlights -->
-        <path d="M512 110C511 96 506 84 498 74L490 80C496 90 498 100 498 110C498 120 496 130 490 140L498 146C506 136 511 124 512 110Z" fill="#141416"/>
-        <g fill="#141416"><path d="M468 62L432 54L430 62L462 70Z"/><path d="M468 158L432 166L430 158L462 150Z"/></g>
-        <!-- hood creases -->
-        <g stroke="#a94510" stroke-width="2" fill="none" opacity=".6"><path d="M470 96C440 92 412 88 384 84"/><path d="M470 124C440 128 412 132 384 136"/></g>
-        <!-- mirrors -->
-        <path d="M352 40C348 30 338 26 326 28C328 36 336 42 352 44Z" fill="#dd7028"/><path d="M352 180C348 190 338 194 326 192C328 184 336 178 352 176Z" fill="#dd7028"/>
-        <!-- cabin glass -->
-        <path d="M352 84C336 70 300 65 270 65L218 68C196 70 184 82 184 110C184 138 196 150 218 152L270 155C300 155 336 150 352 136C358 122 358 98 352 84Z" fill="#14161b"/>
-        <path d="M340 84C326 76 300 72 274 72L222 74C206 76 198 88 198 110C198 132 206 144 222 146L274 148C300 148 326 144 340 136C345 124 345 98 340 84Z" fill="#20242c"/>
-        <!-- roof -->
-        <rect x="232" y="82" width="72" height="56" rx="16" fill="url(#og)"/>
-        <rect x="240" y="106" width="56" height="8" rx="4" fill="#111" opacity=".35"/>
-        <!-- side intakes -->
-        <path d="M228 42C200 42 172 46 160 58L200 66L236 60Z" fill="#101113"/><path d="M228 178C200 178 172 174 160 162L200 154L236 160Z" fill="#101113"/>
-        <!-- engine cover -->
-        <path d="M176 76L100 70C78 70 62 78 56 92C52 102 52 118 56 128C62 142 78 150 100 150L176 144C168 130 166 90 176 76Z" fill="#191b1f"/>
-        <g fill="#4a4f57"><rect x="94" y="80" width="70" height="5" rx="2"/><rect x="88" y="92" width="76" height="5" rx="2"/><rect x="86" y="104" width="78" height="5" rx="2"/>
-          <rect x="86" y="116" width="78" height="5" rx="2"/><rect x="88" y="128" width="76" height="5" rx="2"/><rect x="94" y="140" width="70" height="5" rx="2"/></g>
-        <!-- rear wing -->
-        <path d="M30 34C14 52 8 80 8 110C8 140 14 168 30 186L40 180C28 162 24 138 24 110C24 82 28 58 40 40Z" fill="#111214"/>
-        <path d="M34 42C22 60 18 84 18 110C18 136 22 160 34 178" stroke="#e8823a" stroke-width="3" fill="none"/>
-        <!-- taillights -->
-        <g fill="#ff3b3b"><rect x="44" y="58" width="6" height="18" rx="3"/><rect x="44" y="144" width="6" height="18" rx="3"/></g>
-      </svg>
+         <img id="carImg" src="mclaren.png" alt="">
     </div>
   </div>
 
@@ -129,8 +94,7 @@ if (reduced) {
     scrollTrigger: { trigger: "#hero", start: "top top", end: "+=150%", scrub: 1, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
   });
   const carX = v => () => v * innerWidth - car.offsetWidth * 0.3; // trail edge stays under the car
-  gsap.set(car, { x: carX(0) });
-  tl.to(car, { x: carX(1) }, 0)
+    tl.fromTo(car, { x: carX(0) }, { x: carX(1) }, 0)  document.getElementById("carImg").addEventListener("load", () => ScrollTrigger.refresh());
     .to("#trail", { scaleX: 1 }, 0)
     .to(".row.top .card", { y: -30, stagger: 0.05 }, 0)
     .to(".row.bottom .card", { y: 30, stagger: 0.05 }, 0);
