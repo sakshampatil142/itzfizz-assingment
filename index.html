@@ -94,11 +94,13 @@ if (reduced) {
     scrollTrigger: { trigger: "#hero", start: "top top", end: "+=150%", scrub: 1, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
   });
   const carX = v => () => v * innerWidth - car.offsetWidth * 0.3; // trail edge stays under the car
-    tl.fromTo(car, { x: carX(0) }, { x: carX(1) }, 0) 
-      document.getElementById("carImg").addEventListener("load", () => ScrollTrigger.refresh());
+  const carX = v => () => v * innerWidth - car.offsetWidth * 0.3; // trail edge stays under the car
+  tl.fromTo(car, { x: carX(0) }, { x: carX(1) }, 0)
     .to("#trail", { scaleX: 1 }, 0)
     .to(".row.top .card", { y: -30, stagger: 0.05 }, 0)
     .to(".row.bottom .card", { y: 30, stagger: 0.05 }, 0);
+
+  document.getElementById("carImg").addEventListener("load", () => ScrollTrigger.refresh());
 }
 </script>
 </body>
