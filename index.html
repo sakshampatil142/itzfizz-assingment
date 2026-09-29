@@ -7,8 +7,6 @@
 <style>
 :root{--bg:#d1d1d1;--next:#111;--nextfg:#f2f2f2;--fs:8.6vw;--band:calc(var(--fs)*2.1);
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a2a2d}}
-:root[data-theme="dark"]{--bg:#2a2a2d}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
@@ -49,7 +47,7 @@ body{background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow
     <div class="trail" id="trail"></div>
     <h1 class="headline" id="headline" aria-label="Welcome ItzFizz">WELCOME ITZFIZZ</h1>
     <div class="car" id="car" aria-hidden="true">
-        <img id="carImg" src="https://paraschaturvedi.github.io/car-scroll-animation/McLaren%20720S%202022%20top%20view.png" alt="">
+      <img id="carImg" src="https://paraschaturvedi.github.io/car-scroll-animation/McLaren%20720S%202022%20top%20view.png" alt="">
     </div>
   </div>
 
@@ -61,6 +59,8 @@ body{background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow
 
 <section class="next"><h2>Keep scrolling. Keep moving.</h2></section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
