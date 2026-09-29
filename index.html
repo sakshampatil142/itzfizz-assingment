@@ -61,8 +61,6 @@ body{background:var(--bg);font-family:"Helvetica Neue",Arial,sans-serif;overflow
 
 <section class="next"><h2>Keep scrolling. Keep moving.</h2></section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,12 +77,13 @@ headline.textContent = "";
 
 const car = document.getElementById("car");
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const carX = v => () => v * innerWidth - car.offsetWidth * 0.3; // trail edge stays under the car
 
 if (reduced) {
   gsap.set("#trail", { scaleX: 1 });
-  gsap.set(car, { x: () => innerWidth - car.offsetWidth * 0.3 });
+  gsap.set(car, { x: carX(1) });
 } else {
-  /* 2. Intro: headline letters, then cards one by one (time-based, runs once) */
+  /* 2. Intro: headline letters, then cards one by one */
   gsap.from("#headline span", { opacity: 0, y: 50, duration: 0.9, ease: "power3.out", stagger: 0.05 });
   gsap.from(".card", { opacity: 0, y: 40, duration: 0.9, ease: "power3.out", stagger: 0.18, delay: 0.3 });
 
@@ -93,8 +92,6 @@ if (reduced) {
     defaults: { ease: "none" },
     scrollTrigger: { trigger: "#hero", start: "top top", end: "+=150%", scrub: 1, pin: true, anticipatePin: 1, invalidateOnRefresh: true }
   });
-  const carX = v => () => v * innerWidth - car.offsetWidth * 0.3; // trail edge stays under the car
-  const carX = v => () => v * innerWidth - car.offsetWidth * 0.3; // trail edge stays under the car
   tl.fromTo(car, { x: carX(0) }, { x: carX(1) }, 0)
     .to("#trail", { scaleX: 1 }, 0)
     .to(".row.top .card", { y: -30, stagger: 0.05 }, 0)
